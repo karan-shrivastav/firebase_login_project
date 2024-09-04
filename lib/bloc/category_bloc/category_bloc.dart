@@ -18,20 +18,13 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         emit(CategoryLoading());
         final response = await apiService
             .apiCallTypePost('partner/categories/list', body: event.body);
-        print('Category ***********************************');
-        print(event.body);
-        print('***********************************');
         if (kDebugMode) {
           print(("Data ${response.body}"));
         }
         if (response.statusCode == 200) {
           final Map<String, dynamic> responseData = json.decode(response.body);
           if (responseData['status'] == true) {
-            // ToastAlert(responseData["message"]);
             gymCategoryModel = GymCategoryModel.fromJson(responseData);
-            print('***********************************************');
-            print(gymCategoryModel);
-            print('***************************************************');
             emit(CategorySuccess(gymCategoryModel: gymCategoryModel));
           } else {
             commonResponseModel = const CommonResponseModel(
@@ -42,7 +35,6 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
           }
         } else {
           final Map<String, dynamic> responseData = json.decode(response.body);
-          //  ToastAlert(responseData["message"]);
           emit(CategoryFail(
               commonResponseModel: CommonResponseModel(
                   statusCode: 400, message: responseData["message"])));

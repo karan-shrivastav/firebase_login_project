@@ -39,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-   // _getCurrentLocation();
     Map<String, dynamic> gymData = {
       "latitude": "28.704060",
       "longitude": "77.102493"
@@ -65,21 +64,13 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                 TextfieldWidget(
+                 const TextfieldWidget(
                   hintText: '131, B Bloc, Sector2, Noida, Uttar Pradesh...',
                 ),
-                // ElevatedButton(
-                //     onPressed: () {
-                //       _signOut();
-                //       Navigator.of(context).pop();
-                //       setState(() {});
-                //     },
-                //     child: const TextWidget(
-                //       text: 'Signout',
-                //     )),
+
                 const SizedBox(
                   height: 20,
                 ),

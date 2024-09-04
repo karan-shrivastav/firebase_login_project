@@ -18,20 +18,13 @@ class GymListByCategoryBloc extends Bloc<GymListByCategoryEvent, GymListByCatego
         emit(GymListByCategoryLoading());
         final response = await apiService
             .apiCallTypePost('customer/gymListByCategory', body: event.body);
-        print('GymListByCategory ***********************************');
-        print(event.body);
-        print('***********************************');
         if (kDebugMode) {
           print(("Data ${response.body}"));
         }
         if (response.statusCode == 200) {
           final Map<String, dynamic> responseData = json.decode(response.body);
           if (responseData['status'] == true) {
-            // ToastAlert(responseData["message"]);
             gymListByCategoryModel = GymListByCategoryModel.fromJson(responseData);
-            print('***********************************************');
-            print(gymListByCategoryModel);
-            print('***************************************************');
             emit(GymListByCategorySuccess(gymListByCategoryModel: gymListByCategoryModel));
           } else {
             commonResponseModel = const CommonResponseModel(
@@ -42,7 +35,6 @@ class GymListByCategoryBloc extends Bloc<GymListByCategoryEvent, GymListByCatego
           }
         } else {
           final Map<String, dynamic> responseData = json.decode(response.body);
-          //  ToastAlert(responseData["message"]);
           emit(GymListByCategoryFail(
               commonResponseModel: CommonResponseModel(
                   statusCode: 400, message: responseData["message"])));

@@ -21,7 +21,6 @@ class GymCategoryWidget extends StatelessWidget {
             CircleAvatar(
               radius: 35,
               backgroundColor:const Color(0xfff4f4f4f),
-             // backgroundImage: NetworkImage(image ?? '', ),
               child:  ClipOval(
                 child: ColorFiltered(
                   colorFilter: const ColorFilter.mode(

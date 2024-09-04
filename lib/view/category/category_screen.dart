@@ -75,11 +75,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 } else {
                   categories = [];
                 }
-
                 return Container(
                   margin: const EdgeInsets.all(5),
                   padding: const EdgeInsets.all(10),
-                  //height: 200,
                   decoration: BoxDecoration(
                       color: const Color(0xfff292929),
                       borderRadius: BorderRadius.circular(15)),
@@ -109,7 +107,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                           .data?[index].gymName ??
                                       '',
                                   overFlow: TextOverflow.ellipsis,
-                                  //text: 'TTN Gym',
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -195,7 +192,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                     borderRadius: BorderRadius.circular(15)),
                                 child: TextWidget(
                                   text: categories![index].categoryName ?? '',
-                                  // text: "Aerobic exercise",
+
                                   fontWeight: FontWeight.bold,
                                 ),
                               );
